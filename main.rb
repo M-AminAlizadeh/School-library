@@ -42,7 +42,7 @@ def option_methods(option)
   when 3
     create_person
   when 4
-    create_book
+    create_bok
   when 5
     create_rental
   when 6
