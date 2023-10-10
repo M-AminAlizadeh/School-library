@@ -35,7 +35,7 @@ class App
   end
 
   def create_person
-    Input.person_type
+    Input.person_type(@persons)
   end
 
   def create_student

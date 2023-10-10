@@ -1,14 +1,14 @@
 class Input
-  def self.person_type
+  def self.person_type(persons)
     loop do
       print 'Do you want to create a student(1) or a teacher(2)? [Input the number]: '
       input = gets.chomp.to_i
 
       case input
       when 1
-        create_student
+        create_student(persons)
       when 2
-        create_teacher
+        create_teacher(persons)
       else
         puts 'Invalid input. Please enter 1 for student or 2 for teacher.'
       end
@@ -44,7 +44,7 @@ class Input
     puts 'Teacher created successfully'
   end
 
-  def self.create_book
+  def self.create_book(books)
     print 'Title: '
     title = gets.chomp
     print 'Author: '
@@ -55,7 +55,7 @@ class Input
     puts 'Book created successfully'
   end
 
-  def self.create_rental
+  def self.create_rental(persons, books, rentals)
     puts 'Select a book from the following list by number'
     list_all_books
     book_index = gets.chomp.to_i
