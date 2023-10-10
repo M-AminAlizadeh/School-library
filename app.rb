@@ -3,6 +3,7 @@ require_relative 'teacher'
 require_relative 'student'
 require_relative 'classroom'
 require_relative 'rental'
+require_relative 'input'
 
 class App
   attr_accessor :books, :students, :teachers, :rental
@@ -34,84 +35,23 @@ class App
   end
 
   def create_person
-    print 'Do you want to create a student(1) or a teacher(2)? [Input the number]: '
-    person_type = gets.chomp.to_i
-    until person_type.between?(1, 2)
-      puts 'Invalid input. Please enter the correct number [1/2]: '
-      person_type = gets.chomp.to_i
-    end
-
-    if person_type == 1
-      create_student
-    else
-      create_teacher
-    end
+    Input.person_type(@persons)
   end
 
   def create_student
-    print 'Age: '
-    age = gets.chomp.to_i
-    print 'Name: '
-    name = gets.chomp
-    print 'Has parent permission? [Y/N]: '
-    parent_permission = gets.chomp.upcase
-    until parent_permission.eql?('Y') || parent_permission.eql?('N')
-      print 'Invalid input. Please enter the correct option [Y/N]: '
-      parent_permission = gets.chomp.upcase
-    end
-    p_permission = parent_permission == 'Y'
-    student = Student.new(classroom: 'classroom', age: age, name: name, parent_permission: p_permission)
-    @persons << student
-    puts 'Student created successfully'
+    Input.create_student(@persons)
   end
 
   def create_teacher
-    print 'Age: '
-    age = gets.chomp.to_i
-    print 'Name: '
-    name = gets.chomp
-    print 'Specialization: '
-    specialization = gets.chomp
-    teacher = Teacher.new(specialization: specialization, age: age, name: name)
-    @persons << teacher
-    puts 'Teacher created successfully'
+    Input.create_teacher(@persons)
   end
 
   def create_book
-    print 'Title: '
-    title = gets.chomp
-    print 'Author: '
-    author = gets.chomp
-    book = Book.new(title, author)
-    @books << book
-
-    puts 'Book created successfully'
+    Input.create_book(@books)
   end
 
   def create_rental
-    puts 'Select a book from the following list by number'
-    list_all_books
-    book_index = gets.chomp.to_i
-    until book_index.between?(1, @books.length)
-      print 'Invalid input. Please enter the correct number: '
-      book_index = gets.chomp.to_i
-    end
-
-    puts 'Select a person from the following list by number (not id)'
-    list_all_persons
-    person_index = gets.chomp.to_i
-    until person_index.between?(1, @persons.length)
-      print 'Invalid input. Please enter the correct number: '
-      person_index = gets.chomp.to_i
-    end
-
-    print 'Date: '
-    date = gets.chomp
-
-    rental = Rental.new(date, @persons[person_index - 1], @books[book_index - 1])
-    @rentals << rental
-
-    puts 'Rental created successfully'
+    Input.create_rental(@persons, @books, @rentals)
   end
 
   def list_all_rentals_of_person
