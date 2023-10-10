@@ -6,10 +6,10 @@ class AppController
   end
 
   def execute(app_controller)
-    app_intro (app_controller)
+    app_intro(app_controller)
   end
 
-  def app_intro (app_controller)
+  def app_intro(app_controller)
     puts 'Welcome to the School Library App!'
     puts ''
     loop do
