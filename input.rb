@@ -44,7 +44,7 @@ class Input
     puts 'Teacher created successfully'
   end
 
-  def self.create_book(books)
+  def self.create_book(_books)
     print 'Title: '
     title = gets.chomp
     print 'Author: '
@@ -55,7 +55,7 @@ class Input
     puts 'Book created successfully'
   end
 
-  def self.create_rental(persons, books, rentals)
+  def self.create_rental(_persons, _books, _rentals)
     puts 'Select a book from the following list by number'
     list_all_books
     book_index = gets.chomp.to_i
