@@ -103,6 +103,11 @@ No test written for this project yet!
 - Twitter: [@Mamin_alizadeh](https://twitter.com/Mamin_alizadeh)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/m-amin-alizadeh/)
 
+👤 **Nweneary Uzochukwu Winnie**
+
+- GitHub: [@Wineshuga](https://github.com/Wineshuga)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/wineshuga/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
