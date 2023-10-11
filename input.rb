@@ -27,7 +27,7 @@ class Input
       parent_permission = gets.chomp.upcase
     end
     p_permission = parent_permission == 'Y'
-    student = Student.new(classroom: 'classroom', age: age, name: name, parent_permission: p_permission)
+    student = Student.new(Classroom.new('classroom'), age, name, parent_permission: p_permission)
     persons << student
     puts 'Student created successfully'
   end
@@ -39,7 +39,7 @@ class Input
     name = gets.chomp
     print 'Specialization: '
     specialization = gets.chomp
-    teacher = Teacher.new(specialization: specialization, age: age, name: name)
+    teacher = Teacher.new(specialization, age, name)
     persons << teacher
     puts 'Teacher created successfully'
   end
@@ -75,7 +75,7 @@ class Input
     print 'Date: '
     date = gets.chomp
 
-    rental = Rental.new(date, @persons[person_index - 1], @books[book_index - 1])
+    rental = Rental.new(date, @books[book_index - 1], @persons[person_index - 1])
     @rentals << rental
 
     puts 'Rental created successfully'
