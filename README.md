@@ -38,8 +38,9 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **OOP**
-- **Inheritance**
+- **class base OOP**
+- **Unit tests**
+- **Save the user's data locally**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
