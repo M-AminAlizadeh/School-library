@@ -26,5 +26,18 @@
       "title": "Teacher",
       "specialization": "Science"
     }
+  },
+  {
+    "date": "1984/07/23",
+    "book": {
+      "title": "The Great Gatsby",
+      "author": "Scott Fitzgerald"
+    },
+    "person": {
+      "id": 236,
+      "name": "Ahmad",
+      "age": 14,
+      "title": "Student"
+    }
   }
 ]

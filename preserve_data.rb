@@ -48,16 +48,20 @@ module PreserveData
       rental_item = {
         date: rental.date,
         book: {
-          title: rental.book.title, author: rental.book.author
+          title: rental.book.title,
+          author: rental.book.author
         },
         person: {
-          id: rental.person.id, name: rental.person.name, age: rental.person.age, title: rental.person.title
+          id: rental.person.id,
+          name: rental.person.name,
+          age: rental.person.age,
+          title: rental.person.title
         }
       }
-      if rental.person.title == 'Student'
+      if rental.person.title == 'Student' && rental.person.classroom
         rental_item[:person][:classroom] = rental.person.classroom.label
         rental_item[:person][:parent_permission] = rental.person.parent_permission
-      else
+      elsif rental.person.title == 'Teacher'
         rental_item[:person][:specialization] = rental.person.specialization
       end
       rentals_list << rental_item
