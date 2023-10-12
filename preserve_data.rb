@@ -20,21 +20,30 @@ module PreserveData
 
   def save_people
     people_list = @persons.map do |person|
-      if person.title == 'Student'
+      if person.is_a?(Student)
         {
-          id: person.id.to_s, name: person.name, age: person.age,
-          parent_permission: person.parent_permission, classroom: person.classroom.label,
-          title: person.title
+          title: 'Student',
+          age: person.age,
+          name: person.name,
+          parent_permission: person.parent_permission,
+          id: person.id
         }
-      else
+      elsif person.is_a?(Teacher)
         {
-          id: person.id.to_s, name: person.name, age: person.age,
-          specialization: person.specialization, title: person.title
+          title: 'Teacher',
+          specialization: person.specialization,
+          age: person.age,
+          name: person.name,
+          id: person.id
         }
       end
+    end.compact
+
+    File.open('persons.json', 'w') do |file|
+      file.write(JSON.pretty_generate(people_list))
     end
-    save_to_file('persons.json', people_list)
   end
+
 
   def save_rentals
     rentals_list = []
