@@ -7,8 +7,10 @@ class Input
       case input
       when 1
         create_student(persons)
+        break
       when 2
         create_teacher(persons)
+        break
       else
         puts 'Invalid input. Please enter 1 for student or 2 for teacher.'
       end
