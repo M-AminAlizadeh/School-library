@@ -8,7 +8,7 @@ require_relative 'load_data'
 require_relative 'preserve_data'
 
 class App
-  attr_accessor :books, :students, :teachers, :rental
+  attr_accessor :books, :persons, :rentals
 
   include LoadData
   include PreserveData

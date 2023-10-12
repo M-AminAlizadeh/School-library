@@ -12,5 +12,19 @@
     "age": 0,
     "name": "43",
     "id": 836
+  },
+  {
+    "title": "Student",
+    "age": 13,
+    "name": "Jessica",
+    "parent_permission": true,
+    "id": 347
+  },
+  {
+    "title": "Teacher",
+    "specialization": "Science",
+    "age": 28,
+    "name": "Donald",
+    "id": 427
   }
 ]
