@@ -19,9 +19,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Enumerable] <a name="about-project"></a>
+# 📖 School library <a name="about-project"></a>
 
-**[School library]** is a about terminal base app using OOP concept 
+**School library** is a about terminal base app using OOP concept 
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -38,8 +38,8 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[OOP]**
-- **[Inheritance]**
+- **OOP**
+- **Inheritance**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -84,12 +84,21 @@ To run the project, execute the following command:
 Example command:
 
 ```rb
-  ruby my_list.rb
+  ruby main.rb
 ```
 
 ### Run tests
 
-No test written for this project yet!
+To run unit test (They are written using Rspec) follow this:
+
+```rb
+  # Go to the tests directory(folder), all of the test files are their
+  # Now choose which file you want to test
+  # Then use this command
+    rspec student_spec.rb
+  # OR
+    rspec teacher_spec.rb
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -114,8 +123,9 @@ No test written for this project yet!
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **Add Test**
+- **Add Integration Test**
 - **Add GUI**
+- **Put it on a server to clients can use it on the web not only locally**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
