@@ -4,10 +4,6 @@ require_relative 'student'
 require_relative 'teacher'
 
 module PreserveData
-  def save_to_file(file_name, data)
-    File.write(file_name, JSON.pretty_generate(data))
-  end
-
   def save_books
     books_list = @books.map do |book|
       {
@@ -19,29 +15,43 @@ module PreserveData
   end
 
   def save_people
-    people_list = @persons.map do |person|
-      if person.is_a?(Student)
-        {
-          title: 'Student',
-          age: person.age,
-          name: person.name,
-          parent_permission: person.parent_permission,
-          id: person.id
-        }
-      elsif person.is_a?(Teacher)
-        {
-          title: 'Teacher',
-          specialization: person.specialization,
-          age: person.age,
-          name: person.name,
-          id: person.id
-        }
-      end
-    end.compact
+    students_list = @persons.select { |person| person.is_a?(Student) }
+    teachers_list = @persons.select { |person| person.is_a?(Teacher) }
 
-    File.open('persons.json', 'w') do |file|
-      file.write(JSON.pretty_generate(people_list))
+    save_students(students_list)
+    save_teachers(teachers_list)
+  end
+
+  def save_students(students_list)
+    students_data = students_list.map do |student|
+      {
+        title: 'Student',
+        age: student.age,
+        name: student.name,
+        parent_permission: student.parent_permission,
+        id: student.id
+      }
     end
+
+    save_to_file('students.json', students_data)
+  end
+
+  def save_teachers(teachers_list)
+    teachers_data = teachers_list.map do |teacher|
+      {
+        title: 'Teacher',
+        specialization: teacher.specialization,
+        age: teacher.age,
+        name: teacher.name,
+        id: teacher.id
+      }
+    end
+
+    save_to_file('teachers.json', teachers_data)
+  end
+
+  def save_to_file(file_name, data)
+    File.write(file_name, JSON.pretty_generate(data))
   end
 
   def save_rentals
