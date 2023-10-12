@@ -64,7 +64,7 @@ class App
   end
 
   def create_rental
-    Input.create_rental(@persons, @books, @rentals)
+    Input.create_rental(self)
   end
 
   def list_all_rentals_of_person

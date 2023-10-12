@@ -46,30 +46,30 @@ class Input
     puts 'Teacher created successfully'
   end
 
-  def self.create_book(_books)
+  def self.create_book(books)
     print 'Title: '
     title = gets.chomp
     print 'Author: '
     author = gets.chomp
     book = Book.new(title, author)
-    @books << book
+    books << book
 
     puts 'Book created successfully'
   end
 
-  def self.create_rental(_persons, _books, _rentals)
+  def self.create_rental(app)
     puts 'Select a book from the following list by number'
-    list_all_books
+    app.list_all_books
     book_index = gets.chomp.to_i
-    until book_index.between?(1, @books.length)
+    until book_index.between?(1, app.books.length)
       print 'Invalid input. Please enter the correct number: '
       book_index = gets.chomp.to_i
     end
 
     puts 'Select a person from the following list by number (not id)'
-    list_all_persons
+    app.list_all_persons
     person_index = gets.chomp.to_i
-    until person_index.between?(1, @persons.length)
+    until person_index.between?(1, app.persons.length)
       print 'Invalid input. Please enter the correct number: '
       person_index = gets.chomp.to_i
     end
@@ -77,8 +77,8 @@ class Input
     print 'Date: '
     date = gets.chomp
 
-    rental = Rental.new(date, @books[book_index - 1], @persons[person_index - 1])
-    @rentals << rental
+    rental = Rental.new(date, app.books[book_index - 1], app.persons[person_index - 1])
+    app.rentals << rental
 
     puts 'Rental created successfully'
   end

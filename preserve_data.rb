@@ -44,7 +44,6 @@ module PreserveData
     end
   end
 
-
   def save_rentals
     rentals_list = []
     @rentals.each do |rental|
