@@ -1,0 +1,43 @@
+[
+  {
+    "date": "2023/10/12",
+    "book": {
+      "title": "The Great Gatsby",
+      "author": "Scott Fitzgerald"
+    },
+    "person": {
+      "id": 836,
+      "name": "43",
+      "age": 0,
+      "title": "Teacher",
+      "specialization": "Mathmatics"
+    }
+  },
+  {
+    "date": "2024/01/01",
+    "book": {
+      "title": "1984",
+      "author": "George Orwell"
+    },
+    "person": {
+      "id": 427,
+      "name": "Donald",
+      "age": 28,
+      "title": "Teacher",
+      "specialization": "Science"
+    }
+  },
+  {
+    "date": "1984/07/23",
+    "book": {
+      "title": "The Great Gatsby",
+      "author": "Scott Fitzgerald"
+    },
+    "person": {
+      "id": 236,
+      "name": "Ahmad",
+      "age": 14,
+      "title": "Student"
+    }
+  }
+]

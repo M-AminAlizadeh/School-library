@@ -47,8 +47,13 @@ class AppController
     when 6
       @app.list_all_rentals_of_person
     else
-      puts 'Thank you for using this app!'
-      exit
+      save_and_exit
     end
+  end
+
+  def save_and_exit
+    @app.save
+    puts 'Good luck'
+    exit
   end
 end

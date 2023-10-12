@@ -4,14 +4,22 @@ require_relative 'student'
 require_relative 'classroom'
 require_relative 'rental'
 require_relative 'input'
+require_relative 'load_data'
+require_relative 'preserve_data'
 
 class App
-  attr_accessor :books, :students, :teachers, :rental
+  attr_accessor :books, :persons, :rentals
+
+  include LoadData
+  include PreserveData
 
   def initialize
     @persons = []
     @books = []
     @rentals = []
+    load_books
+    load_people
+    load_rentals
   end
 
   def list_all_books
@@ -29,7 +37,12 @@ class App
       puts "Currently, we don't have any person"
     else
       @persons.each_with_index do |person, index|
-        puts "#{index + 1}) [#{person.title}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+        if person.title == 'Teacher'
+          puts "#{index + 1}) [#{person.title}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age},
+          Specialization: #{person.specialization}"
+        else
+          puts "#{index + 1}) [#{person.title}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+        end
       end
     end
   end
@@ -51,7 +64,7 @@ class App
   end
 
   def create_rental
-    Input.create_rental(@persons, @books, @rentals)
+    Input.create_rental(self)
   end
 
   def list_all_rentals_of_person
@@ -67,6 +80,12 @@ class App
         puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by \"#{rental.book.author}\""
       end
     end
+  end
+
+  def save
+    save_books
+    save_people
+    save_rentals
   end
 
   def run
