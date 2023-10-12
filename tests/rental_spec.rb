@@ -1,24 +1,25 @@
 require_relative '../rental'
+require 'date'
 
-describe Rental do
-  let(:book) { instance_double('Book', title: 'title', author: 'Author') }
-  let(:person) { instance_double('Person', name: 'John Doe', rentals: []) }
-  let(:date) { '2623-11-15' }
+RSpec.describe Rental do
+  let(:book) { double('book', rentals: []) }
+  let(:person) { double('person', rentals: []) }
 
   describe '#initialize' do
-    it 'should set the date' do
+    it 'sets date, person, and book attributes' do
+      date = Date.new(2023, 10, 12)
       rental = Rental.new(date, book, person)
+
       expect(rental.date).to eq(date)
-    end
-
-    it 'should set the associated book' do
-      rental = Rental.new(date, book, person)
       expect(rental.book).to eq(book)
+      expect(rental.person).to eq(person)
     end
 
-    it 'should set the associated person' do
-      rental = Rental.new(date, book, person)
-      expect(rental.person).to eq(person)
+    it 'adds itself to the person and book rentals' do
+      rental = Rental.new(Date.new(2023, 10, 12), book, person)
+
+      expect(person.rentals).to include(rental)
+      expect(book.rentals).to include(rental)
     end
   end
 end
