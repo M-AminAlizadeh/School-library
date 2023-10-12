@@ -17,9 +17,9 @@ module LoadData
 
   def load_people
     people_list = []
-    return people_list unless File.exist?('persons.json')
+    return people_list unless File.exist?('people.json')
 
-    people_list = load_data_from_file('persons.json')
+    people_list = load_data_from_file('people.json')
     people_list.each do |person|
       if person['title'] == 'Student'
         student = Student.new(Classroom.new(person['classroom']), person['age'], person['name'],
